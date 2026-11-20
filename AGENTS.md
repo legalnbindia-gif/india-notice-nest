@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+
+- Sample notices, categories, states and the search/filter logic live in `src/lib/notices.ts`; portal filters are URL search params parsed by `parseNoticeFilters` so filtered views are shareable.
+- Post-a-notice validation schemas live in `src/lib/post-notice.ts`, separate from the page, so they can be tested and reused server-side later.
