@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Hand-editable static sitemap, served at /ssitemap.xml.
+     Add or remove <url> entries yourself; keep each <loc> a full https URL.
+     The automatic sitemap at /sitemap.xml is generated separately and does not read this file. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://india-notice-nest.lovable.app/</loc>
+  </url>
+  <url>
+    <loc>https://india-notice-nest.lovable.app/home</loc>
+  </url>
+  <url>
+    <loc>https://india-notice-nest.lovable.app/post-a-notice</loc>
+  </url>
+</urlset>
