@@ -32,6 +32,7 @@ const DESCRIPTION =
   "Submit a legal public notice for verification and permanent, searchable publication across India.";
 
 export const Route = createFileRoute("/post-a-notice")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: TITLE },

@@ -34,6 +34,7 @@ const DESCRIPTION =
   "Search, filter and read published legal notices: property title investigations, lost documents, court notices, corporate filings and more.";
 
 export const Route = createFileRoute("/home")({
+  staticData: { sitemap: true },
   validateSearch: (search: Record<string, unknown>): NoticeFilters => parseNoticeFilters(search),
   head: () => ({
     meta: [

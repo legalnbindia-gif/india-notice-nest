@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as HomeRouteImport } from './routes/home'
 import { Route as PostANoticeRouteImport } from './routes/post-a-notice'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as NoticesNoticeIdRouteImport } from './routes/notices.$noticeId'
 
 const IndexRoute = IndexRouteImport.update({
@@ -29,6 +30,11 @@ const PostANoticeRoute = PostANoticeRouteImport.update({
   path: '/post-a-notice',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NoticesNoticeIdRoute = NoticesNoticeIdRouteImport.update({
   id: '/notices/$noticeId',
   path: '/notices/$noticeId',
@@ -39,12 +45,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/home': typeof HomeRoute
   '/post-a-notice': typeof PostANoticeRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/notices/$noticeId': typeof NoticesNoticeIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/home': typeof HomeRoute
   '/post-a-notice': typeof PostANoticeRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/notices/$noticeId': typeof NoticesNoticeIdRoute
 }
 export interface FileRoutesById {
@@ -52,20 +60,29 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/home': typeof HomeRoute
   '/post-a-notice': typeof PostANoticeRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/notices/$noticeId': typeof NoticesNoticeIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/home' | '/post-a-notice' | '/notices/$noticeId'
+  fullPaths:
+    '/' | '/home' | '/post-a-notice' | '/sitemap.xml' | '/notices/$noticeId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/home' | '/post-a-notice' | '/notices/$noticeId'
-  id: '__root__' | '/' | '/home' | '/post-a-notice' | '/notices/$noticeId'
+  to: '/' | '/home' | '/post-a-notice' | '/sitemap.xml' | '/notices/$noticeId'
+  id:
+    | '__root__'
+    | '/'
+    | '/home'
+    | '/post-a-notice'
+    | '/sitemap.xml'
+    | '/notices/$noticeId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   HomeRoute: typeof HomeRoute
   PostANoticeRoute: typeof PostANoticeRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   NoticesNoticeIdRoute: typeof NoticesNoticeIdRoute
 }
 
@@ -92,6 +109,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PostANoticeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/notices/$noticeId': {
       id: '/notices/$noticeId'
       path: '/notices/$noticeId'
@@ -106,6 +130,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   HomeRoute: HomeRoute,
   PostANoticeRoute: PostANoticeRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   NoticesNoticeIdRoute: NoticesNoticeIdRoute,
 }
 export const routeTree = rootRouteImport

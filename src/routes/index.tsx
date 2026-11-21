@@ -9,6 +9,7 @@ const DESCRIPTION =
   "Legal public notices are moving from scattered print newspapers to one permanent, searchable, verified online record for businesses and individuals across India.";
 
 export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: TITLE },

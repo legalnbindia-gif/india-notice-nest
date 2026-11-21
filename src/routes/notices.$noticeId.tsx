@@ -16,6 +16,9 @@ import {
 } from "@/lib/notices";
 
 export const Route = createFileRoute("/notices/$noticeId")({
+  // Excluded from the sitemap while notices are sample data; flip to true and
+  // add dynamic entries once real notices are published.
+  staticData: { sitemap: false },
   loader: ({ params }) => {
     const notice = getNotice(params.noticeId);
     if (!notice) throw notFound();

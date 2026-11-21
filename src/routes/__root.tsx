@@ -75,6 +75,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  staticData: { sitemap: false },
   head: () => ({
     // Each content route, / included, sets its own head(). Never add og:image or
     // twitter:image here: every page without its own would inherit the root's preview image.
