@@ -7,6 +7,7 @@ const DESC =
   "A broadsheet-style stream of recently posted legal public notices across India, searchable by state, category and date.";
 
 export const Route = createFileRoute("/home_/newspaper_v1")({
+  staticData: { sitemap: false },
   head: () => ({
     meta: [
       { title: TITLE },
